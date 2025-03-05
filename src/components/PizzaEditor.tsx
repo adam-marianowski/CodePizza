@@ -1,14 +1,17 @@
-import { FunctionComponent, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Pizza } from "../typescript/Pizza";
 import PizzaForm from "./PizzaForm";
+
+import type { JSX } from "react";
+import type { Pizza } from "../typescript/Pizza";
+import type { NavigateFunction, Params } from "react-router";
 
 const api = "http://localhost:3000/pizzas";
 
-const PizzaEditor: FunctionComponent = () => {
+export default function PizzaEditor(): JSX.Element {
   const [selectedPizza, setSelectedPizza] = useState<Pizza>({} as Pizza);
-  const navigate = useNavigate();
-  const params = useParams<{ id: string }>();
+  const navigate: NavigateFunction = useNavigate();
+  const params: Readonly<Params<string>> = useParams();
 
   useEffect(() => {
     if (params.id) {
@@ -19,25 +22,23 @@ const PizzaEditor: FunctionComponent = () => {
     }
   }, [params.id]);
 
-  const handleEditPizza = (pizza: Pizza) => {
+  function handleEditPizza(pizza: Pizza): void {
     fetch(`${api}/${params.id}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(pizza),
     })
       .then(() => navigate("/"))
       .catch((error) => console.error("Error updating pizza:", error));
-  };
+  }
 
-  const handleDeletePizza = (id: string) => {
+  function handleDeletePizza(id: string): void {
     fetch(`${api}/${id}`, {
       method: "DELETE",
     })
       .then(() => navigate("/"))
       .catch((error) => console.error("Error deleting pizza:", error));
-  };
+  }
 
   return (
     <div className="PizzasEditor">
@@ -54,6 +55,4 @@ const PizzaEditor: FunctionComponent = () => {
       />
     </div>
   );
-};
-
-export default PizzaEditor;
+}
