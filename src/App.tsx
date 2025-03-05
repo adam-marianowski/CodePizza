@@ -3,7 +3,9 @@ import PizzasPage from "./components/PizzasPage";
 import PizzaEditor from "./components/PizzaEditor";
 import PizzaCreator from "./components/PizzaCreator";
 
-function App() {
+import type { JSX } from "react";
+
+export default function App(): JSX.Element {
   return (
     <div className="App">
       <BrowserRouter>
@@ -22,5 +24,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

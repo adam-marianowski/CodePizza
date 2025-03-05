@@ -64,7 +64,7 @@ If `selectedPizza` (initial value) is available for the form it will populate al
 
 When user is inserting ingredients they are being split into an array by comma and assigned to state:
 
-```tsx
+```ts
 // In PizzaForm.tsx
 if (name === "ingredients") {
   return setPizza((p) => ({
@@ -72,4 +72,59 @@ if (name === "ingredients") {
     ingredients: value.split(",").map((i) => i.trim()),
   }));
 }
+```
+
+## 🍕 Code style
+
+1. Describe functions with `function` declaration and default export on the same line
+
+```ts
+explore default function MyComponent(): JSX.Element {
+  // ...
+}
+```
+
+2. Provide explicit typing to variables, functions and return types:
+
+```ts
+explore default function MyComponent(): JSX.Element {
+
+  function doSomething(): string {
+    // ...
+  }
+
+  // ...
+}
+```
+
+3. don't destructure props. Props are enlisted in `Props` type on top of the component:
+
+```ts
+type Props = { prop1: string, prop2: number };
+
+explore default function MyComponent(props: Props): JSX.Element {
+  // ...
+}
+```
+
+4. Use `arrow functions` for callback. Use function declaration for component functions and handlers:
+
+```ts
+explore default function MyComponent(): JSX.Element {
+
+  function doSomething(): string {
+    // ...
+  }
+
+  // ...
+}
+```
+
+5. Separate normal values imports from types imports:
+
+```ts
+import PizzaEditor from "./components/PizzaEditor";
+import PizzaCreator from "./components/PizzaCreator";
+
+import type { JSX } from "react";
 ```

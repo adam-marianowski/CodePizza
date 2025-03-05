@@ -1,11 +1,17 @@
-import { FunctionComponent, useEffect, useState } from "react";
-import { Pizza } from "../typescript/Pizza";
+import { useEffect, useState } from "react";
+
+import type { ChangeEvent, JSX } from "react";
+import type { Pizza } from "../typescript/Pizza";
 
 type Props = {
   selectedPizza?: Pizza;
   onSubmit: (pizza: Pizza) => void;
   onDelete?: (id: string) => void;
 };
+
+type formChangeEvent = ChangeEvent<
+  HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+>;
 
 const imageOptions = [
   "pizza-bacon",
@@ -22,22 +28,14 @@ const imageOptions = [
   "pizza-vegetarian",
 ];
 
-const PizzaForm: FunctionComponent<Props> = ({
-  selectedPizza,
-  onSubmit,
-  onDelete,
-}) => {
+export default function PizzaForm(props: Props): JSX.Element {
   const [pizza, setPizza] = useState<Pizza>({} as Pizza);
 
   useEffect(() => {
-    setPizza(selectedPizza ?? ({} as Pizza));
-  }, [selectedPizza]);
+    setPizza(props.selectedPizza ?? ({} as Pizza));
+  }, [props.selectedPizza]);
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
+  function handleChange(e: formChangeEvent): void {
     const { name, value, type, checked } = e.target as HTMLInputElement;
 
     if (name === "ingredients") {
@@ -51,25 +49,20 @@ const PizzaForm: FunctionComponent<Props> = ({
       ...prevPizza,
       [name]: type === "checkbox" ? checked : value,
     }));
-  };
+  }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit(e: React.FormEvent): void {
     e.preventDefault();
     const id = Math.floor(Math.random() * 1000).toString();
-    onSubmit({ ...pizza, id: selectedPizza?.id ?? id });
-  };
+    props.onSubmit({ ...pizza, id: props.selectedPizza?.id ?? id });
+  }
 
   return (
     <form onSubmit={handleSubmit} className="PizzaForm">
       <div className="form-container">
         <label>
           <span>Name:</span>
-          <input
-            type="text"
-            name="name"
-            value={pizza.name}
-            onChange={handleChange}
-          />
+          <input type="text" name="name" value={pizza.name} onChange={handleChange} />
         </label>
         <label>
           <span>Ingredients:</span>
@@ -82,12 +75,7 @@ const PizzaForm: FunctionComponent<Props> = ({
         </label>
         <label>
           <span>Price:</span>
-          <input
-            type="number"
-            name="price"
-            value={pizza.price}
-            onChange={handleChange}
-          />
+          <input type="number" name="price" value={pizza.price} onChange={handleChange} />
         </label>
         <label>
           <span>Description:</span>
@@ -113,11 +101,11 @@ const PizzaForm: FunctionComponent<Props> = ({
         </label>
 
         <div className="buttons">
-          {selectedPizza && (
+          {props.selectedPizza && (
             <button
               type="button"
               className="delete-button"
-              onClick={() => onDelete && onDelete(selectedPizza.id)}
+              onClick={() => props.onDelete && props.onDelete(props.selectedPizza!.id)}
             >
               Remove
             </button>
@@ -133,6 +121,4 @@ const PizzaForm: FunctionComponent<Props> = ({
       />
     </form>
   );
-};
-
-export default PizzaForm;
+}

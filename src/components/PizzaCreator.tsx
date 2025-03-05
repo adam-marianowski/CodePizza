@@ -1,14 +1,16 @@
-import { FunctionComponent } from "react";
 import PizzaForm from "./PizzaForm";
-import { Pizza } from "../typescript/Pizza";
 import { useNavigate } from "react-router-dom";
+
+import type { JSX } from "react";
+import type { Pizza } from "../typescript/Pizza";
+import type { NavigateFunction } from "react-router";
 
 const api = "http://localhost:3000/pizzas";
 
-const PizzaCreator: FunctionComponent = () => {
-  const navigate = useNavigate();
+export default function PizzaCreator(): JSX.Element {
+  const navigate: NavigateFunction = useNavigate();
 
-  const handleCreatePizza = (pizza: Pizza) => {
+  function handleCreatePizza(pizza: Pizza): void {
     fetch(api, {
       method: "POST",
       headers: {
@@ -18,7 +20,7 @@ const PizzaCreator: FunctionComponent = () => {
     })
       .then(() => navigate("/"))
       .catch((error) => console.error("Error creating pizza:", error));
-  };
+  }
 
   return (
     <div className="PizzasCreator">
@@ -31,6 +33,4 @@ const PizzaCreator: FunctionComponent = () => {
       <PizzaForm onSubmit={handleCreatePizza} />
     </div>
   );
-};
-
-export default PizzaCreator;
+}
