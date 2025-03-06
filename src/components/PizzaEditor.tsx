@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import PizzaForm from "./PizzaForm";
 import { PIZZA_EDITOR } from "@utilities/locale.json";
 import { deletePizza, getPizza, updatePizza } from "@utilities/apiHelpers";
+import { ROUTES } from "@/utilities/routes";
 
 import type { JSX } from "react";
 import type { Pizza } from "@typescript/Pizza";
@@ -21,11 +22,11 @@ export default function PizzaEditor(): JSX.Element {
   }, [params.id]);
 
   function handleEditPizza(pizza: Pizza): void {
-    updatePizza(pizza).then(() => navigate("/"));
+    updatePizza(pizza).then(() => navigate(ROUTES.HOME));
   }
 
   function handleDeletePizza(id: string): void {
-    deletePizza(id).then(() => navigate("/"));
+    deletePizza(id).then(() => navigate(ROUTES.HOME));
   }
 
   return (
@@ -33,7 +34,7 @@ export default function PizzaEditor(): JSX.Element {
       <Page.Heading>
         <Page.Title title={PIZZA_EDITOR.TITLE} />
         <Page.Button
-          onClick={() => navigate("/")}
+          onClick={() => navigate(ROUTES.HOME)}
           title={PIZZA_EDITOR.GO_BACK}
           className="go-back-button"
         />
