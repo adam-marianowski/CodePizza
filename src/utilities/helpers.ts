@@ -1,3 +1,5 @@
+import { ASSETS } from "./constants";
+
 export function getPizzaImagePath(pizza: string): string {
-  return `/assets/pizzas/${pizza}.svg`;
+  return `${ASSETS.PIZZAS}/${pizza}.svg`;
 }

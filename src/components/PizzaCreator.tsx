@@ -3,6 +3,7 @@ import PizzaForm from "./PizzaForm";
 import { useNavigate } from "react-router-dom";
 import { PIZZA_CREATOR } from "@utilities/locale.json";
 import { createPizza } from "@utilities/apiHelpers";
+import { ROUTES } from "@/utilities/routes";
 
 import type { JSX } from "react";
 import type { Pizza } from "@typescript/Pizza";
@@ -12,7 +13,7 @@ export default function PizzaCreator(): JSX.Element {
   const navigate: NavigateFunction = useNavigate();
 
   function handleCreatePizza(pizza: Pizza): void {
-    createPizza(pizza).then(() => navigate("/"));
+    createPizza(pizza).then(() => navigate(ROUTES.HOME));
   }
 
   return (
@@ -21,7 +22,7 @@ export default function PizzaCreator(): JSX.Element {
         <Page.Title title={PIZZA_CREATOR.TITLE} />
         <Page.Button
           title={PIZZA_CREATOR.GO_BACK}
-          onClick={() => navigate("/")}
+          onClick={() => navigate(ROUTES.HOME)}
           className="go-back-button"
         />
       </Page.Heading>
