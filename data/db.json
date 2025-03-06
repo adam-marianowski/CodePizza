@@ -43,12 +43,7 @@
     {
       "id": "00006",
       "name": "Mediterranean",
-      "ingredients": [
-        "mozzarella cheese",
-        "feta cheese",
-        "olives",
-        "tomato base"
-      ],
+      "ingredients": ["mozzarella cheese", "feta cheese", "olives", "tomato base"],
       "price": 14.49,
       "description": "A Mediterranean delight with mozzarella cheese, feta cheese, olives, and tomato base.",
       "image": "pizza-mediterranean"
@@ -56,12 +51,7 @@
     {
       "id": "00007",
       "name": "Prosciutto",
-      "ingredients": [
-        "mozzarella cheese",
-        "prosciutto",
-        "arugula",
-        "tomato base"
-      ],
+      "ingredients": ["mozzarella cheese", "prosciutto", "arugula", "tomato base"],
       "price": 15.49,
       "description": "A gourmet pizza with mozzarella cheese, prosciutto, arugula, and tomato base.",
       "image": "pizza-prosciutto"
@@ -69,12 +59,7 @@
     {
       "id": "00008",
       "name": "Special",
-      "ingredients": [
-        "mozzarella cheese",
-        "pepperoni",
-        "sausage",
-        "tomato base"
-      ],
+      "ingredients": ["mozzarella cheese", "pepperoni", "sausage", "tomato base"],
       "price": 16.49,
       "description": "A special pizza with mozzarella cheese, pepperoni, sausage, and tomato base.",
       "image": "pizza-special"
@@ -82,12 +67,7 @@
     {
       "id": "00009",
       "name": "Spicy",
-      "ingredients": [
-        "mozzarella cheese",
-        "jalapenos",
-        "pepperoni",
-        "tomato base"
-      ],
+      "ingredients": ["mozzarella cheese", "jalapenos", "pepperoni", "tomato base"],
       "price": 13.99,
       "description": "A spicy pizza with mozzarella cheese, jalapenos, pepperoni, and tomato base.",
       "image": "pizza-spicy"
@@ -95,12 +75,7 @@
     {
       "id": "00010",
       "name": "Tangy",
-      "ingredients": [
-        "mozzarella cheese",
-        "bbq sauce",
-        "chicken",
-        "tomato base"
-      ],
+      "ingredients": ["mozzarella cheese", "bbq sauce", "chicken", "tomato base"],
       "price": 14.99,
       "description": "A tangy pizza with mozzarella cheese, bbq sauce, chicken, and tomato base.",
       "image": "pizza-tangy"
@@ -108,12 +83,7 @@
     {
       "id": "00011",
       "name": "Veg Special",
-      "ingredients": [
-        "mozzarella cheese",
-        "bell peppers",
-        "onions",
-        "tomato base"
-      ],
+      "ingredients": ["mozzarella cheese", "bell peppers", "onions", "tomato base"],
       "price": 12.99,
       "description": "A vegetarian special pizza with mozzarella cheese, bell peppers, onions, and tomato base.",
       "image": "pizza-veg-special"
@@ -121,12 +91,7 @@
     {
       "id": "00012",
       "name": "Vegetarian",
-      "ingredients": [
-        "mozzarella cheese",
-        "mushrooms",
-        "bell peppers",
-        "tomato base"
-      ],
+      "ingredients": ["mozzarella cheese", "mushrooms", "bell peppers", "tomato base"],
       "price": 12.49,
       "description": "A vegetarian pizza with mozzarella cheese, mushrooms, bell peppers, and tomato base.",
       "image": "pizza-vegetarian"

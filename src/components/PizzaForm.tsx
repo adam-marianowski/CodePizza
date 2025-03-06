@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { PIZZA_FORM } from "@utilities/locale.json";
 
 import type { ChangeEvent, JSX } from "react";
-import type { Pizza } from "../typescript/Pizza";
+import type { Pizza } from "@typescript/Pizza";
 
 type Props = {
   selectedPizza?: Pizza;
@@ -61,11 +62,11 @@ export default function PizzaForm(props: Props): JSX.Element {
     <form onSubmit={handleSubmit} className="PizzaForm">
       <div className="form-container">
         <label>
-          <span>Name:</span>
+          <span>{PIZZA_FORM.NAME}:</span>
           <input type="text" name="name" value={pizza.name} onChange={handleChange} />
         </label>
         <label>
-          <span>Ingredients:</span>
+          <span>{PIZZA_FORM.INGREDIENTS}:</span>
           <input
             type="text"
             name="ingredients"
@@ -74,11 +75,11 @@ export default function PizzaForm(props: Props): JSX.Element {
           />
         </label>
         <label>
-          <span>Price:</span>
+          <span>{PIZZA_FORM.PRICE}:</span>
           <input type="number" name="price" value={pizza.price} onChange={handleChange} />
         </label>
         <label>
-          <span>Description:</span>
+          <span>{PIZZA_FORM.DESCRIPTION}:</span>
           <textarea
             name="description"
             value={pizza.description}
@@ -86,7 +87,7 @@ export default function PizzaForm(props: Props): JSX.Element {
           />
         </label>
         <label>
-          <span>Image:</span>
+          <span>{PIZZA_FORM.IMAGE}:</span>
           <select
             name="image"
             value={pizza.image ?? "pizza-margherita"}
@@ -107,10 +108,10 @@ export default function PizzaForm(props: Props): JSX.Element {
               className="delete-button"
               onClick={() => props.onDelete && props.onDelete(props.selectedPizza!.id)}
             >
-              Remove
+              {PIZZA_FORM.REMOVE_BUTTON}
             </button>
           )}
-          <button type="submit">Save Pizza</button>
+          <button type="submit">{PIZZA_FORM.SAVE_BUTTON}</button>
         </div>
       </div>
 
