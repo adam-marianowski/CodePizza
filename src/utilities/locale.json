@@ -1,0 +1,23 @@
+{
+  "PIZZAS_PAGE": {
+    "TITLE": "Our Pizzas",
+    "ADD_NEW_PIZZA": "Add New Pizza"
+  },
+  "PIZZA_FORM": {
+    "NAME": "Name",
+    "INGREDIENTS": "Ingredients",
+    "PRICE": "Price",
+    "DESCRIPTION": "Description",
+    "IMAGE": "Image",
+    "REMOVE_BUTTON": "Remove",
+    "SAVE_BUTTON": "Save Pizza"
+  },
+  "PIZZA_CREATOR": {
+    "TITLE": "Create New Pizza",
+    "GO_BACK": "Back to Pizzas"
+  },
+  "PIZZA_EDITOR": {
+    "TITLE": "Update Pizza",
+    "GO_BACK": "Back to Pizzas"
+  }
+}

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PizzasPage from "./components/PizzasPage";
-import PizzaEditor from "./components/PizzaEditor";
-import PizzaCreator from "./components/PizzaCreator";
+import PizzasPage from "@components/PizzasPage";
+import PizzaEditor from "@components/PizzaEditor";
+import PizzaCreator from "@components/PizzaCreator";
 
 import type { JSX } from "react";
 

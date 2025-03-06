@@ -1,5 +1,7 @@
+import { getPizzaImagePath } from "@utilities/helpers";
+
 import type { JSX } from "react";
-import type { Pizza } from "../typescript/Pizza";
+import type { Pizza } from "@typescript/Pizza";
 
 type Props = { pizza: Pizza; onClick: () => void };
 
@@ -7,7 +9,7 @@ export default function PizzaCard(props: Props): JSX.Element {
   return (
     <li className="PizzaCard" onClick={props.onClick}>
       <img
-        src={`/assets/pizzas/${props.pizza.image}.svg`}
+        src={getPizzaImagePath(props.pizza.image)}
         alt="image of pizza"
         className="card-image"
       />
