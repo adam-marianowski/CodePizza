@@ -4,18 +4,23 @@ import PizzaEditor from "@components/PizzaEditor";
 import PizzaCreator from "@components/PizzaCreator";
 import { ROUTES } from "./utilities/routes";
 import { ASSETS } from "./utilities/constants";
+import useStyles from "./styles/app.styles";
+import GlobalAppicationStyles from "@styles/GlobalApplicationStyles";
 
 import type { JSX } from "react";
 
 export default function App(): JSX.Element {
+  const classes = useStyles().classes;
+
   return (
-    <div className="App">
+    <div>
+      <GlobalAppicationStyles />
       <BrowserRouter>
-        <nav className="navbar">
-          <img src={ASSETS.LOGO} alt="" className="logo" />
+        <nav className={classes.navbar}>
+          <img src={ASSETS.LOGO} alt="" className={classes.logo} />
         </nav>
 
-        <main className="main">
+        <main className={classes.main}>
           <Routes>
             <Route path={ROUTES.HOME} element={<PizzasPage />} />
             <Route path={ROUTES.PIZZA_CREATOR} element={<PizzaCreator />} />

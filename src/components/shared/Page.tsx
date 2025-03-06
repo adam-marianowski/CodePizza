@@ -1,3 +1,5 @@
+import useStyles from "@/styles/page.styles";
+
 import type { JSX, ReactNode } from "react";
 
 type WithChildren = { children: ReactNode };
@@ -6,10 +8,10 @@ type PageContentProps = WithChildren;
 
 type PageTitleProps = { title: string };
 
-type PageProps = { className: string } & WithChildren;
+type PageProps = { className?: string } & WithChildren;
 
 type PageButtonProps = {
-  className: string;
+  className?: string;
   onClick: () => void;
   title: ReactNode;
 };
@@ -31,9 +33,10 @@ Page.Title = function Title(props: PageTitleProps): JSX.Element {
 };
 
 Page.Heading = function Heading(props: WithChildren): JSX.Element {
-  return <div className="page-heading">{props.children}</div>;
+  const classes = useStyles().classes;
+  return <div className={classes.pageHeading}>{props.children}</div>;
 };
 
 Page.Content = function Content(props: PageContentProps): JSX.Element {
-  return <div className="page-content">{props.children}</div>;
+  return <div>{props.children}</div>;
 };

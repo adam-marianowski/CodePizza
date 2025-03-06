@@ -5,6 +5,7 @@ import PizzaForm from "./PizzaForm";
 import { PIZZA_EDITOR } from "@utilities/locale.json";
 import { deletePizza, getPizza, updatePizza } from "@utilities/apiHelpers";
 import { ROUTES } from "@/utilities/routes";
+import useStyles from "@/styles/common.styles";
 
 import type { JSX } from "react";
 import type { Pizza } from "@typescript/Pizza";
@@ -14,6 +15,7 @@ export default function PizzaEditor(): JSX.Element {
   const [selectedPizza, setSelectedPizza] = useState<Pizza>({} as Pizza);
   const navigate: NavigateFunction = useNavigate();
   const params: Readonly<Params<string>> = useParams();
+  const classes = useStyles().classes;
 
   useEffect(() => {
     if (params.id) {
@@ -30,13 +32,13 @@ export default function PizzaEditor(): JSX.Element {
   }
 
   return (
-    <Page className="PizzasEditor">
+    <Page>
       <Page.Heading>
         <Page.Title title={PIZZA_EDITOR.TITLE} />
         <Page.Button
           onClick={() => navigate(ROUTES.HOME)}
           title={PIZZA_EDITOR.GO_BACK}
-          className="go-back-button"
+          className={classes.goBackButton}
         />
       </Page.Heading>
 
