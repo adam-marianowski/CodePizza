@@ -11,7 +11,8 @@
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@typescript/*": ["src/typescript/*"],
-      "@utilities/*": ["src/utilities/*"]
+      "@utilities/*": ["src/utilities/*"],
+      "@styles/*": ["src/styles/*"]
     },
 
     /* Bundler mode */

@@ -74,6 +74,10 @@ if (name === "ingredients") {
 }
 ```
 
+## 🍕 styles
+
+I'm using tss for styling in this project. Global styles are stored in `GlobalApplicationStyles.tsx` and used in `App.tsx`. All other styles are placed in `styles` folder.
+
 ## 🍕 Code style
 
 1. Describe functions with `function` declaration and default export on the same line

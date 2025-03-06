@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { PIZZA_FORM } from "@utilities/locale.json";
+import { ASSETS } from "@/utilities/constants";
+import useStyles from "@/styles/pizzaForm.styles";
 
 import type { ChangeEvent, JSX } from "react";
 import type { Pizza } from "@typescript/Pizza";
@@ -31,6 +33,7 @@ const imageOptions = [
 
 export default function PizzaForm(props: Props): JSX.Element {
   const [pizza, setPizza] = useState<Pizza>({} as Pizza);
+  const classes = useStyles().classes;
 
   useEffect(() => {
     setPizza(props.selectedPizza ?? ({} as Pizza));
@@ -59,36 +62,51 @@ export default function PizzaForm(props: Props): JSX.Element {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="PizzaForm">
-      <div className="form-container">
-        <label>
+    <form onSubmit={handleSubmit} className={classes.pizzaForm}>
+      <div className={classes.formContainer}>
+        <label className={classes.label}>
           <span>{PIZZA_FORM.NAME}:</span>
-          <input type="text" name="name" value={pizza.name} onChange={handleChange} />
+          <input
+            className={classes.input}
+            type="text"
+            name="name"
+            value={pizza.name}
+            onChange={handleChange}
+          />
         </label>
-        <label>
+        <label className={classes.label}>
           <span>{PIZZA_FORM.INGREDIENTS}:</span>
           <input
+            className={classes.input}
             type="text"
             name="ingredients"
             value={pizza.ingredients?.join(", ")}
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={classes.label}>
           <span>{PIZZA_FORM.PRICE}:</span>
-          <input type="number" name="price" value={pizza.price} onChange={handleChange} />
+          <input
+            className={classes.input}
+            type="number"
+            name="price"
+            value={pizza.price}
+            onChange={handleChange}
+          />
         </label>
-        <label>
+        <label className={classes.label}>
           <span>{PIZZA_FORM.DESCRIPTION}:</span>
           <textarea
+            className={classes.input}
             name="description"
             value={pizza.description}
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={classes.label}>
           <span>{PIZZA_FORM.IMAGE}:</span>
           <select
+            className={classes.input}
             name="image"
             value={pizza.image ?? "pizza-margherita"}
             onChange={handleChange}
@@ -101,11 +119,11 @@ export default function PizzaForm(props: Props): JSX.Element {
           </select>
         </label>
 
-        <div className="buttons">
+        <div className={classes.buttons}>
           {props.selectedPizza && (
             <button
               type="button"
-              className="delete-button"
+              className={classes.deleteButton}
               onClick={() => props.onDelete && props.onDelete(props.selectedPizza!.id)}
             >
               {PIZZA_FORM.REMOVE_BUTTON}
@@ -116,9 +134,9 @@ export default function PizzaForm(props: Props): JSX.Element {
       </div>
 
       <img
-        src={`/assets/pizzas/${pizza.image ?? "pizza-margherita"}.svg`}
+        src={`${ASSETS.PIZZAS}/${pizza.image ?? "pizza-margherita"}.svg`}
         alt=""
-        className="form-pizza-image"
+        className={classes.pizzaImage}
       />
     </form>
   );
